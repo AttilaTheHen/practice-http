@@ -22,4 +22,12 @@ describe('Simple http server', () => {
                 assert.equal(res.text, 'HAPPY BIRTHDAY JOHN');
             });
     });
+
+    it('shouts to stranger when no person is specified', () => {
+        return chai.request(app)
+            .get('/happy-birthday-shout')
+            .then(res => {
+                assert.equal(res.text, 'HAPPY BIRTHDAY STRANGER');
+            });
+    });
 });
