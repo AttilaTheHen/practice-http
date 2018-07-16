@@ -14,4 +14,12 @@ describe('Simple http server', () => {
                 assert.equal(res.text, 'hello world');
             });
     });
+
+    it('shouts happy birthday to a person', () => {
+        return chai.request(app)
+            .get('/happy-birthday-shout/john')
+            .then(res => {
+                assert.equal(res.text, 'HAPPY BIRTHDAY JOHN');
+            });
+    });
 });
